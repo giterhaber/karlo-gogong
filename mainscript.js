@@ -22,7 +22,7 @@ const firebaseConfig = {
     let button = event.target
     let docId = button.parentElement.id
   
-  
+   
     if (confirm('delete sure?')) {
       console.log(docId)
       db.collection('data').doc(docId).delete()
