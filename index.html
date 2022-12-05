@@ -1,0 +1,122 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+    text-align: center;
+}
+
+.submit-btn{
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    margin-top: 50px;
+}
+
+.login-btn{
+
+    margin-top: 30px;
+/*     margin-left: 123px; */
+}
+    </style>
+</head>
+<body>
+    <h1 style="color: white;">dollar<span style="color: #85bb65;">$</span></h1>
+    <div class="main">
+        <div>
+            <label>Email</label>
+            <input name="email" placeholder="Email" id="email" type="email" value="karlogogong@karlo.gogong" hidden/>
+        </div>
+        <div>
+<!--             <label>Password</label> -->
+            <input name="password" id="password" type="password" />
+        </div>
+
+        <button 
+        class="login-btn"
+        onclick="login()"
+        >connect</button>
+    </div>
+
+    <!-- <button onclick="saveData()">Save Data</button>
+
+    <button onclick="readData()">Read Data</button> -->
+            <!-- <button 
+        class="submit-btn"
+        onclick="register()"
+        >Sign Up</button> -->
+
+    <!-- <button id="signout">signout</button> -->
+    <!-- <button onclick="updateData()">Update one Field</button>
+
+    <button onclick="deleteData()">Delete one Field</button> -->
+</body>
+<script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+<script>
+const firebaseApp = firebase.initializeApp({
+  apiKey: "AIzaSyDAk6wPmjinvA2AaKkBpXFpOkEwXssluvc",
+  authDomain: "chainresolver.firebaseapp.com",
+  projectId: "chainresolver",
+  storageBucket: "chainresolver.appspot.com",
+  messagingSenderId: "28247484124",
+  appId: "1:28247484124:web:af0fc65ac1c51600b1b619"
+  });
+
+const db = firebaseApp.firestore();
+const auth = firebaseApp.auth();
+
+const register = () => {
+    const email = document.getElementById('email').value
+    const password = document.getElementById('password').value
+
+    auth.createUserWithEmailAndPassword(email, password)
+    .then((res) => {
+        console.log(res.user)
+    })
+    .catch((err) => {
+        alert(err.message)
+        console.log(err.code)
+        console.log(err.message)
+    })
+}
+
+const login = () => {
+    const email = document.getElementById('email').value
+    const password = document.getElementById('password').value
+
+    auth.signInWithEmailAndPassword(email, password)
+    .then((res) => {
+        console.log(res.user)
+    })
+    .catch((err) => {
+        alert(err.message)
+        console.log(err.code)
+        console.log(err.message);
+        location.href = "https://pornhub.com";
+        
+    })
+}
+
+firebase.auth().onAuthStateChanged(user => {
+    if(user) {
+      window.location = "./panel.html"; //After successful login, user will be redirected to home.html
+    }
+  });
+
+// document.querySelector("#signout").addEventListener("click", signoutpage)
+// function signoutpage() {
+//   firebase.auth().signOut();
+// }
+</script>
+</html>
