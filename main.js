@@ -1,11 +1,11 @@
 import {notify} from 'https://giterhaber.github.io/web-codes/notification.js'
-import {karlo_gogong} from 'https://giterhaber.github.io/web-codes/configs.js'
+import {cmBwsbFSqC as config} from 'https://giterhaber.github.io/web-codes/configs.js'
 
 import firebase from "https://cdn.skypack.dev/firebase/compat/app";
 import "https://cdn.skypack.dev/firebase/compat/auth";
 import "https://cdn.skypack.dev/firebase/compat/firestore";
 
-  firebase.initializeApp(karlo_gogong);
+  firebase.initializeApp(config);
   const db = firebase.firestore();
   const auth = firebase.auth();
 
