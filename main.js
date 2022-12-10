@@ -62,7 +62,12 @@ import "https://cdn.skypack.dev/firebase/compat/firestore";
 
     })
       var entryCount =   $('.new-entry').find('.data-content').length
-      notify(entryCount + ' new entry!', 'click to open', 'https://i.pinimg.com/236x/9f/ee/55/9fee55fe5559da752bd2851103b9f69b.jpg')
+      
+      if(entryCount === 0) {
+        console.log('0')
+      } else {
+        notify(entryCount + ' new entry!', 'click to open', 'https://i.pinimg.com/236x/9f/ee/55/9fee55fe5559da752bd2851103b9f69b.jpg')
+      }
 
 });
 
