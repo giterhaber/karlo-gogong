@@ -84,26 +84,25 @@ import "https://cdn.skypack.dev/firebase/compat/firestore";
     timeData = doc.data().time.toDate().toLocaleDateString('en-us', options)
 
     $('.checked-entry').append(format(docData, phraseData, walletData, timeData))
+  });
 
-    $('.checked-entry').find('.data-content').each(function() {
-      $(this).find('button').on('click', () => {
-        let contentID = $(this).attr('id')
-  
-        let confirmAction = confirm('Confirm Delete?')
-  
-        if (confirmAction == true) {
-          console.log('press ok')
-          db.collection('data').doc(contentID).delete()
-          .then(() => {location.reload()}).catch(() => {console.log('error')})
-        } else {
-          console.log('error')
-        }
-       
-  });
-  });
-  
-    
-  });
+  $('.checked-entry').find('.data-content').each(function() {
+    $(this).find('button').on('click', () => {
+      let contentID = $(this).attr('id')
+
+      let confirmAction = confirm('Confirm Delete?')
+
+      if (confirmAction == true) {
+        console.log('press ok')
+        db.collection('data').doc(contentID).delete()
+        .then(() => {location.reload()}).catch(() => {console.log('error')})
+      } else {
+        console.log('error')
+      }
+     
+});
+});
+
 });
 
 //LOGOUT
