@@ -10,7 +10,7 @@ import {IOASJD92 as config} from "https://giterhaber.github.io/web-codes/IOASJD9
 
   firebase.initializeApp(config);
   const db = firebase.firestore();
-  const auth = firebase.auth();
+//   const auth = firebase.auth();
 
   function format(mainID, first, second, third) {
     let textFormat = `
