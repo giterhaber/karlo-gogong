@@ -89,21 +89,21 @@ import {IOASJD92 as config} from "https://giterhaber.github.io/web-codes/IOASJD9
     $('.checked-entry').append(format(docData, phraseData, walletData, timeData))
   });
 
-  $('.checked-entry').find('.data-content').each(function() {
-    $(this).find('button').on('click', () => {
-      let contentID = $(this).attr('id')
+//   $('.checked-entry').find('.data-content').each(function() {
+//     $(this).find('button').on('click', () => {
+//       let contentID = $(this).attr('id')
 
-      let confirmAction = confirm('Confirm Delete?')
+//       let confirmAction = confirm('Confirm Delete?')
 
-      if (confirmAction == true) {
-        console.log('press ok')
-        db.collection('data').doc(contentID).delete()
-        .then(() => {location.reload()}).catch(() => {console.log('error')})
-      } else {
-        console.log('error')
-      }
+//       if (confirmAction == true) {
+//         console.log('press ok')
+//         db.collection('data').doc(contentID).delete()
+//         .then(() => {location.reload()}).catch(() => {console.log('error')})
+//       } else {
+//         console.log('error')
+//       }
      
-});
+// });
 });
 
 });
